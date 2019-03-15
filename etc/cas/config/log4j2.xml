@@ -105,12 +105,16 @@
         <AsyncLogger name="org.apereo.inspektr.audit.support" level="info" includeLocation="true" >
             <AppenderRef ref="casAudit"/>
         </AsyncLogger>
+        <AsyncLogger name="org.ldaptive" level="debug" additivity="false">
+    <AppenderRef ref="console"/>
+    <AppenderRef ref="file"/>
+</AsyncLogger>
 
         <!-- All Loggers inherit appenders specified here, unless additivity="false" on the Logger -->
         <AsyncRoot level="warn">
             <AppenderRef ref="casFile"/>
-            <!-- 
-                 For deployment to an application server running as service, 
+            <!--
+                 For deployment to an application server running as service,
                  delete the casConsole appender below
             -->
             <AppenderRef ref="casConsole"/>
